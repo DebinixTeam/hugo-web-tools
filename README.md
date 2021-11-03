@@ -8,6 +8,17 @@ The `Makefile` has commands to install, update, and remove the site to a locally
 to ensure that the new site will behave appropriately on a widespread web server platform. 
 Apache will run the site under `/var/www/example.com`. Browse to it with `localhost`.
 
+The makefile currently supports following commands:
+
+        build --------- builds the site files with Hugo
+        server -------- launch Hugo server at localhost:1313
+
+        init ---------- creates the site Apache root directory
+        install ------- installs static files to local Apache site
+        clean --------- removes all sites file at local Apache web server
+
+        deploy -------- uploads finished site to GitHub pages repository
+
 For quick access, I wrote this document if I needed them later. Maybe someone else will find the notes helpful as well.
 
 - [See also Hugo's excellent documentaion](https://gohugo.io/documentation/)
@@ -138,4 +149,5 @@ Then, start the server and open a browser at `localhost:1313`.
 # Site development with a Makefile
 
 These are just simple shortcuts for useful terminal commands and to simplify workflow during site development.
-Just copy the `Makefile` to the root of your site and use the `make help` to see available options.
+Just copy the `Makefile` to the root of your site and use the `make help` to see all available options.
+
