@@ -10,7 +10,7 @@ RM = /usr/bin/rm
 CHOWN = /usr/bin/chown
 USER := $(shell echo $(USER))
 
-HUGO = /usr/bin/hugo server --disableFastRender
+HUGO = /usr/bin/hugo
 
 CURRENT_DIRECTORY := $(shell pwd)
 CURRENT_SITE := $(notdir $(CURRENT_DIRECTORY))
@@ -45,11 +45,19 @@ init:
 		echo "Skipping - site $(CURRENT_SITE) already exists in Apache root!" ; \
 	fi
 
-build:
+rmpublic:
+	@echo "Removing any old generated files in $(CURRENT_SITE)/public, before building site again..."
+	@if [ -d /srv/www/$(CURRENT_SITE)/public ] ; then \
+		$(RM) -fr /srv/www/$(CURRENT_SITE)/public ; \
+	else \
+		echo "Skipping - nothing to erase in public folder" ; \
+	fi
+
+build: rmpublic
 	@$(HUGO)
 
 server: build
-	@$(HUGO)
+	@$(HUGO) server --disableFastRender
 
 clean:
 	@if [ -d /var/www/$(CURRENT_SITE) ] ; then \
@@ -73,4 +81,4 @@ deploy:
 	@echo "- but requires GitHub action configuration to work. See documentation"
 	@echo "- at 'https://gohugo.io/hosting-and-deployment/hosting-on-github/'"
 
-.PHONY: help init build server clean install deploy
+.PHONY: help init rmpublic build server clean install deploy
