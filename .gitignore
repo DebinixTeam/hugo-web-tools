@@ -1,2 +1,9 @@
+# Exclude vscode files
 .vscode
-
+# Exclude Hugo generated files
+public/
+resources/_gen/*
+# Exclude the themes and subdirectories
+themes/*
+# Exclude lock file, new in hugo v0.89
+.hugo_build.lock 
