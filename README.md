@@ -36,15 +36,14 @@ Check installed version:
 
         apt-cache policy hugo
                 hugo:
-                Installed: 0.86.1-2
-                Candidate: 0.86.1-2
-                Version table:
-                *** 0.86.1-2 500
+                  Installed: 0.89.0-1
+                  Candidate: 0.89.0-1
+                  Version table:
+                 *** 0.89.0-1 500
                         500 http://httpredir.debian.org/debian sid/main amd64 Packages
                         100 /var/lib/dpkg/status
-                0.80.0-6+b5 500
+                     0.80.0-6+b5 500
                         500 http://deb.debian.org/debian stable/main amd64 Packages
-
 
 ## Setting up the directory structure for domain 'example.com'
 
