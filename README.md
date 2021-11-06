@@ -91,9 +91,11 @@ Create the gitignore file and add:
         .vscode
         # Exclude Hugo generated files
         public/
-        resources/_gen/
-        # Exclude the themes
-        themes/
+        resources/_gen/*
+        # Exclude the themes and subdirectories
+        themes/*
+        # Exclude lock file, new in hugo v0.89
+        .hugo_build.lock
 
 ## Create the git repository
 
